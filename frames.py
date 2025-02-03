@@ -118,8 +118,11 @@ class EncounterPage(BasePage):
                         self.output_box.insert(tk.END, f'{num}x{obj} Items')
                         for i in range(num):
                             mag_item = choice(list(self.data[obj].keys()))
-                            self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
-                            
+                            if self.data[obj][mag_item]['Cursed'] == 'Y':
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}(CURSED)')
+                            else:
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
+                                           
             case 'CR 5-10':
                 cp, sp, gp, pp = self.roll_dice(2, 6) * 100, self.roll_dice(2, 6) * 1000, self.roll_dice(6, 6) * 100, self.roll_dice(3, 6) * 10
                 total_gold = pp * 10 + gp + sp % 10 + cp % 100
@@ -187,7 +190,7 @@ class EncounterPage(BasePage):
                                 list_of_gems.append(randint(1, 10))
                             set_of_gems = set(list_of_gems)
                             for key in set_of_gems:
-                                value = GEMSTONES[object][key]
+                                value = ARTPIECES[object][key]
                                 count = list_of_gems.count(key)
                                 self.output_box.insert(tk.END, f'   {count}x{value}')
                             self.output_box.insert(tk.END, f' total gp value of {total_gold + (object_num * 250)}gp')
@@ -197,7 +200,10 @@ class EncounterPage(BasePage):
                         self.output_box.insert(tk.END, f'{num}x{obj} Items')
                         for i in range(num):
                             mag_item = choice(list(self.data[obj].keys()))
-                            self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
+                            if self.data[obj][mag_item]['Cursed'] == 'Y':
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}(CURSED)')
+                            else:
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
 
             case 'CR 11-16':
                 gp, pp = self.roll_dice(4, 6) * 1000, self.roll_dice(5, 6) * 100
@@ -276,7 +282,10 @@ class EncounterPage(BasePage):
                         self.output_box.insert(tk.END, f'{num}x{obj} Items')
                         for i in range(num):
                             mag_item = choice(list(self.data[obj].keys()))
-                            self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
+                            if self.data[obj][mag_item]['Cursed'] == 'Y':
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}(CURSED)')
+                            else:
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
 
             case 'CR 17+':
                 gp, pp = self.roll_dice(12, 6) * 1000, self.roll_dice(8, 6) * 1000
@@ -355,7 +364,10 @@ class EncounterPage(BasePage):
                         self.output_box.insert(tk.END, f'{num}x{obj} Items')
                         for i in range(num):
                             mag_item = choice(list(self.data[obj].keys()))
-                            self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
+                            if self.data[obj][mag_item]['Cursed'] == 'Y':
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}(CURSED)')
+                            else:
+                                self.output_box.insert(tk.END, f'   {self.data[obj][mag_item]['Name']}')
 
 class ItemPage(BasePage):
     def __init__(self, parent, controller, data):

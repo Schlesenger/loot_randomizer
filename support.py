@@ -16,5 +16,4 @@ def ods_to_dict(speadsheet):
             except IndexError:
                 pass
         result_dict[sheet_name] = sheet_dict
-    
     return result_dict
