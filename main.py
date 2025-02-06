@@ -26,7 +26,7 @@ class Generator(tk.Tk):
         self.container.grid(row = 0, column = 0, sticky = 'nsew')
 
         self.frames = {}
-        for F in (EncounterPage, ItemPage, DragonPage):
+        for F in (EncounterPage, ItemPage, ParcelPage):
             frame = F(self.container, self, self.magic_items)
             self.frames[F] = frame
             frame.grid(row = 0, column = 0, sticky = 'nsew')

@@ -2,26 +2,24 @@ import tkinter as tk
 from tkinter import ttk
 from random import randint, choice
 from data import *
+from collections import Counter
 
 class BasePage(ttk.Frame):
     def __init__(self, parent, controller, data):
         super().__init__(parent)
-        self.columnconfigure(3, weight = 1)
-        self.rowconfigure(3, weight = 1)
+        self.output_box = controller.output_box
 
         #page navigation
         cr_button = ttk.Button(self, text = 'Treasure by CR', command = lambda: controller.show_frame(EncounterPage))
         cr_button.grid(row = 0, column = 0, sticky = 'nsew')
         item_button = ttk.Button(self, text = 'Random Items by Class', command = lambda: controller.show_frame(ItemPage))
         item_button.grid(row = 0, column = 1, sticky = 'nsew')
-        dragon_button = ttk.Button(self, text = 'Dragon Hoard', command = lambda: controller.show_frame(DragonPage))
-        dragon_button.grid(row = 0, column = 2, sticky = 'nsew')
+        parcel_button = ttk.Button(self, text = 'Parcels', command = lambda: controller.show_frame(ParcelPage))
+        parcel_button.grid(row = 0, column = 2, sticky = 'nsew')
 
-        #output & clear buttons
-        roll_button = ttk.Button(self, text = 'Roll Loot', command = lambda: self.get_output(self.cr_dropdown))
-        roll_button.grid(row = 2, column = 0)
+        #clear button
         self.clear_button = ttk.Button(self, text = 'Clear', command = lambda: controller.output_box.delete(0, tk.END))
-        self.clear_button.grid(row = 2, column = 1)
+        self.clear_button.grid(row = 3, column = 1, sticky = 'nsew')
 
         self.data = data
 
@@ -39,15 +37,18 @@ class BasePage(ttk.Frame):
 class EncounterPage(BasePage):
     def __init__(self, parent, controller, data):
         super().__init__(parent, controller, data)
-        self.output_box = controller.output_box
 
         #dropdown menu for CR ranges
         cr_label = ttk.Label(self, text = 'Chalenge Rating')
-        cr_label.grid(row = 1, column = 0)
+        cr_label.grid(row = 1, column = 0, sticky = 'w')
         cr_choices = ['CR 0-4', 'CR 5-10', 'CR 11-16', 'CR 17+']
         self.cr_dropdown = ttk.Combobox(self, values = cr_choices)
         self.cr_dropdown.current(0)
         self.cr_dropdown.grid(row = 1, column = 2)
+
+        #output button
+        roll_button = ttk.Button(self, text = 'Roll Loot', command = lambda: self.get_output(self.cr_dropdown))
+        roll_button.grid(row = 3, column = 0, sticky = 'nsew')
 
     def get_output(self, dropdown):
         value = dropdown.get()
@@ -373,14 +374,80 @@ class ItemPage(BasePage):
     def __init__(self, parent, controller, data):
         super().__init__(parent, controller, data)
 
-        class_label = ttk.Label(self, text = 'Class')
-        class_label.grid(row = 1, column = 0)
-        quantity_label = ttk.Label(self, text = 'Quantity')
-        quantity_label.grid(row = 2, column = 0)
+        #class entry
+        self.class_label = ttk.Label(self, text = 'Class (in Roman Numerals)')
+        self.class_label.grid(row = 1, column = 0, columnspan = 2, sticky = 'w')
+        self.class_entry = ttk.Entry(self)
+        self.class_entry.grid(row = 1, column = 2)
 
-class DragonPage(BasePage):
+        #quantity entry
+        self.quantity_label = ttk.Label(self, text = 'Quantity')
+        self.quantity_label.grid(row = 2, column = 0, sticky = 'w')
+        self.quantity_entry = ttk.Entry(self)
+        self.quantity_entry.grid(row = 2, column = 2)
+
+        #output button
+        roll_button = ttk.Button(self, text = 'Roll Loot', command = lambda: self.get_output())
+        roll_button.grid(row = 3, column = 0, sticky = 'nsew')
+
+    def get_output(self):
+        class_var = f'Class {self.class_entry.get()}'
+        quantity = int(self.quantity_entry.get())
+        self.output_box.insert(tk.END, f'{quantity} x {class_var}')
+        for i in range(quantity):
+            mag_item = choice(list(self.data[class_var].keys()))
+            if self.data[class_var][mag_item]['Cursed'] == 'Y':
+                self.output_box.insert(tk.END, f'   {self.data[class_var][mag_item]['Name']}(CURSED)')
+            else:
+                self.output_box.insert(tk.END, f'   {self.data[class_var][mag_item]['Name']}')
+
+class ParcelPage(BasePage):
     def __init__(self, parent, controller, data):
         super().__init__(parent, controller, data)
 
-        age_label = ttk.Label(self, text = 'Dragon Age')
-        age_label.grid(row = 1, column = 0)
+        #level entry
+        level_label = ttk.Label(self, text = 'Party Level')
+        level_label.grid(row = 1, column = 0, sticky = 'w')
+        self.level_entry = ttk.Entry(self)
+        self.level_entry.grid(row = 1, column = 2)
+
+        #party size entry
+        ps_label = ttk.Label(self, text = 'Party Size')
+        ps_label.grid(row = 2, column = 0, sticky = 'w')
+        self.ps_entry = ttk.Entry(self)
+        self.ps_entry.grid(row = 2, column = 2)
+
+        #output button
+        roll_button = ttk.Button(self, text = 'Roll Loot', command = lambda: self.get_output())
+        roll_button.grid(row = 3, column = 0, sticky = 'nsew')
+
+    def add_parcels(self, lvl, size, gp = 0, items = None):
+        if items == None:
+            items = []
+        if 0 < size <= 6:
+            for i in range(size):
+                gp += PARCELS[lvl][i+1]['gp']
+                items.extend(PARCELS[lvl][i+1]['items'])
+            return gp, items
+        elif size > 6:
+            for i in range(6):
+                gp += PARCELS[lvl][i+1]['gp']
+                items.extend(PARCELS[lvl][i+1]['items'])
+            tot_gp, tot_items = self.add_parcels(lvl, size - 6, gp = gp, items = items)
+            return tot_gp, tot_items
+
+    def get_output(self):
+        size = int(self.ps_entry.get())
+        lvl = int(self.level_entry.get())
+        gp, items = self.add_parcels(lvl, size)
+        item_counts = Counter(items)
+
+        self.output_box.insert(tk.END, f'{gp}gp')
+        for class_var, num in item_counts.items():
+            self.output_box.insert(tk.END, f'{num} x {class_var}')
+            for i in range(num):
+                mag_item = choice(list(self.data[class_var].keys()))
+                if self.data[class_var][mag_item]['Cursed'] == 'Y':
+                    self.output_box.insert(tk.END, f'   {self.data[class_var][mag_item]['Name']}(CURSED)')
+                else:
+                    self.output_box.insert(tk.END, f'   {self.data[class_var][mag_item]['Name']}')

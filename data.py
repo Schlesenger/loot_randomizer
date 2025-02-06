@@ -804,3 +804,166 @@ ARTPIECES = {
         8: 'Bejeweled ivory drinking horn with gold filigree'
     }
 }
+
+PARCELS = {
+    1: {
+        1: {'gp': 400, 'items': ['Class I', 'Class I']},
+        2: {'gp': 0, 'items': ['Class III']},
+        3: {'gp': 350, 'items': ['Class II']},
+        4: {'gp': 450, 'items': ['Class I']},
+        5: {'gp': 350, 'items': ['Class II']},
+        6: {'gp': 400, 'items': ['Class I', 'Class I']}
+    },
+    2: {
+        1: {'gp': 350, 'items': ['Class I', 'Class III']},
+        2: {'gp': 800, 'items': ['Class I', 'Class I']},
+        3: {'gp': 850, 'items': ['Class I']},
+        4: {'gp': 400, 'items': ['Class III']},
+        5: {'gp': 750, 'items': ['Class II']},
+        6: {'gp': 700, 'items': ['Class I', 'Class II']}
+    },
+    3: {
+        1: {'gp': 150, 'items': ['Class IV']},
+        2: {'gp': 700, 'items': ['Class I', 'Class II', 'Class III']},
+        3: {'gp': 1300, 'items': ['Class I', 'Class I']},
+        4: {'gp': 150, 'items': ['Class IV']},
+        5: {'gp': 900, 'items': ['Class III']},
+        6: {'gp': 1350, 'items': ['Class I']}
+    },
+    4: {
+        1: {'gp': 1650, 'items': ['Class I', 'Class III']},
+        2: {'gp': 900, 'items': ['Class I', 'Class IV']},
+        3: {'gp': 1200, 'items': ['Class III', 'Class III']},
+        4: {'gp': 490, 'items': ['Class IV']},
+        5: {'gp': 2000, 'items': ['Class I', 'Class I', 'Class I', 'Class I']},
+        6: {'gp': 1500, 'items': ['Class I', 'Class II', 'Class III']}
+    },
+    5: {
+        1: {'gp': 0, 'items': ['Class V']},
+        2: {'gp': 1250, 'items': ['Class III', 'Class III', 'Class IV']},
+        3: {'gp': 1000, 'items': ['Class IV', 'Class IV']},
+        4: {'gp': 3500, 'items': []},
+        5: {'gp': 2250, 'items': ['Class IV']},
+        6: {'gp': 2250, 'items': ['Class III', 'Class IV']}
+    },
+    6: {
+        1: {'gp': 3950, 'items': ['Class I', 'Class I', 'Class III', 'Class IV']},
+        2: {'gp': 2300, 'items': ['Class V']},
+        3: {'gp': 1800, 'items': ['Class III', 'Class V']},
+        4: {'gp': 4550, 'items': ['Class IV']},
+        5: {'gp': 5150, 'items': ['Class II', 'Class III']},
+        6: {'gp': 2300, 'items': ['Class V']}
+    },
+    7: {
+        1: {'gp': 4050, 'items': ['Class V', 'Class IV']},
+        2: {'gp': 8200, 'items': ['Class I', 'Class I', 'Class III']},
+        3: {'gp': 6300, 'items': ['Class IV', 'Class IV']},
+        4: {'gp': 5150, 'items': ['Class I', 'Class I', 'Class I', 'Class V']},
+        5: {'gp': 7800, 'items': ['Class III', 'Class III']},
+        6: {'gp': 8500, 'items': ['Class I', 'Class I', 'Class I', 'Class II']}
+    },
+    8: {
+        1: {'gp': 8750, 'items': ['Class IV', 'Class V']},
+        2: {'gp': 1000, 'items': ['Class VI']},
+        3: {'gp': 9900, 'items': ['Class I', 'Class I', 'Class V']},
+        4: {'gp': 1000, 'items': ['Class V']},
+        5: {'gp': 900, 'items': ['Class I', 'Class I', 'Class VI']},
+        6: {'gp': 11250, 'items': ['Class III', 'Class III', 'Class IV']}
+    },
+    9: {
+        1: {'gp': 3900, 'items': ['Class I', 'Class I', 'Class V', 'Class VI']},
+        2: {'gp': 11750, 'items': ['Class IV', 'Class V', 'Class V']},
+        3: {'gp': 3500, 'items': ['Class III', 'Class V', 'Class VI']},
+        4: {'gp': 10500, 'items': ['Class VI']},
+        5: {'gp': 20000, 'items': []},
+        6: {'gp': 13900, 'items': ['Class I', 'Class I', 'Class IV', 'Class IV', 'Class V']}
+    },
+    10: {
+        1: {'gp': 1400, 'items': ['Class V', 'Class VI']},
+        2: {'gp': 23000, 'items': ['Class V', 'Class V']},
+        3: {'gp': 2250, 'items': ['Class III', 'Class III', 'Class III', 'Class IV', 'Class VI', 'Class VI']},
+        4: {'gp': 14000, 'items': ['Class V', 'Class VI']},
+        5: {'gp': 17500, 'items': ['Class VI']},
+        6: {'gp': 20500, 'items': ['Class IV', 'Class IV', 'Class V', 'Class V']}
+    },
+    11: {
+        1: {'gp': 0, 'items': ['Class VII']},
+        2: {'gp': 13750, 'items': ['Class IV', 'Class VI', 'Class VI']},
+        3: {'gp': 33750, 'items': ['Class III', 'Class III', 'Class III', 'Class IV', 'Class V']},
+        4: {'gp': 0, 'items': ['Class VII']},
+        5: {'gp': 50500, 'items': ['Class V', 'Class V', 'Class VI']},
+        6: {'gp': 22250, 'items': ['Class III', 'Class IV', 'Class V', 'Class VI']}
+    },
+    12: {
+        1: {'gp': 15000, 'items': ['Class VII']},
+        2: {'gp': 2500, 'items': ['Class VI', 'Class VII']},
+        3: {'gp': 26500, 'items': ['Class V', 'Class VI', 'Class VI']},
+        4: {'gp': 6650, 'items': ['Class I', 'Class I', 'Class IV', 'Class V', 'Class V', 'Class VII']},
+        5: {'gp': 28250, 'items': ['Class IV', 'Class IV', 'Class Iv', 'Class V', 'Class V', 'Class V', 'Class VI']},
+        6: {'gp': 12500, 'items': ['Class IV', 'Class IV', 'Class VII']}
+    },
+    13: {
+        1: {'gp': 22500, 'items': ['Class VI', 'Class VII']},
+        2: {'gp': 39500, 'items': ['Class V', 'Class V', 'Class V', 'Class VI', 'Class VI']},
+        3: {'gp': 28000, 'items': ['Class V', 'Class V', 'Class VII']},
+        4: {'gp': 22500, 'items': ['Class VI', 'Class VII']},
+        5: {'gp': 31500, 'items': ['Class V', 'Class VII']},
+        6: {'gp': 10000, 'items': ['Class VI', 'Class VI', 'Class VII']}
+    },
+    14: {
+        1: {'gp': 7500, 'items': ['Class VI', 'Class VII', 'Class VII']},
+        2: {'gp': 0, 'items': ['Class VIII']},
+        3: {'gp': 49500, 'items': ['Class V', 'Class V', 'Class V', 'Class VII']},
+        4: {'gp': 0, 'items': ['Class VIII']},
+        5: {'gp': 20000, 'items': ['Class VII', 'Class VII']},
+        6: {'gp': 35000, 'items': ['Class VI', 'Class VI', 'Class VII']}
+    },
+    15: {
+        1: {'gp': 30000, 'items': ['Class VIII']},
+        2: {'gp': 83000, 'items': ['Class V', 'Class V', 'Class VII']},
+        3: {'gp': 17500, 'items': ['Class VI', 'Class VIII']},
+        4: {'gp': 12500, 'items': ['Class VI', 'Class VI', 'Class VI', 'Class VII', 'Class VII']},
+        5: {'gp': 30000, 'items': ['Class VIII']},
+        6: {'gp': 71500, 'items': ['Class IV', 'Class IV', 'Class V', 'Class VI', 'Class VII']}
+    },
+    16: {
+        1: {'gp': 49000, 'items': ['Class V', 'Class VI', 'Class VIII']},
+        2: {'gp': 60000, 'items': ['Class VI', 'Class VI', 'Class VII', 'Class VII']},
+        3: {'gp': 42000, 'items': ['Class V', 'Class V', 'Class V', 'Class VI', 'Class VIII']},
+        4: {'gp': 65000, 'items': ['Class VIII']},
+        5: {'gp': 40000, 'items': ['Class VI', 'Class VI', 'Class VIII']},
+        6: {'gp': 12500, 'items': ['Class VI', 'Class VII', 'Class VIII']}
+    },
+    17: {
+        1: {'gp': 7500, 'items': ['Class IX']},
+        2: {'gp': 4000, 'items': ['Class V', 'Class IX']},
+        3: {'gp': 95000, 'items': ['Class VI', 'Class VIII']},
+        4: {'gp': 102500, 'items': ['Class VI', 'Class VI', 'Class VII', 'Class VII']},
+        5: {'gp': 50000, 'items': ['Class V', 'Class VII', 'Class VIII']},
+        6: {'gp': 27500, 'items': ['Class VII', 'Class VII', 'Class VIII']}
+    },
+    18: {
+        1: {'gp': 134000, 'items': ['Class V', 'Class VI', 'Class VIII']},
+        2: {'gp': 50000, 'items': ['Class IX']},
+        3: {'gp': 110000, 'items': ['Class VII', 'Class VIII']},
+        4: {'gp': 70000, 'items': ['Class VII', 'Class VII', 'Class VIII']},
+        5: {'gp': 50000, 'items': ['Class IX']},
+        6: {'gp': 85000, 'items': ['Class VI', 'Class VI', 'Class VII', 'Class VIII']}
+    },
+    19: {
+        1: {'gp': 25000, 'items': ['Class VIII', 'Class IX']},
+        2: {'gp': 118000, 'items': ['Class V', 'Class V', 'Class VIII', 'Class VIII']},
+        3: {'gp': 25000, 'items': ['Class VIII', 'Class IX']},
+        4: {'gp': 112500, 'items': ['Class VI', 'Class IX']},
+        5: {'gp': 5000, 'items': ['Class VII', 'Class VII', 'Class VII', 'Class VIII', 'Class VIII']},
+        6: {'gp': 85000, 'items': ['Class VII', 'Class IX']}
+    },
+    20: {
+        1: {'gp': 0, 'items': ['Class X']},
+        2: {'gp': 100000, 'items': ['Class VIII', 'Class IX']},
+        3: {'gp': 0, 'items': ['Class X']},
+        4: {'gp': 135000, 'items': ['Class VI', 'Class VI', 'Class VII', 'Class IX']},
+        5: {'gp': 120000, 'items': ['Class VII', 'Class VII', 'Class IX']},
+        6: {'gp': 75000, 'items': ['Class VI', 'Class VI', 'Class VIII', 'Class IX']}
+    },
+}
