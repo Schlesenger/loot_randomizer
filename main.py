@@ -1,5 +1,5 @@
 from support import*
-from os.path import join
+from os.path import join, dirname
 from frames import*
 import textwrap
 
@@ -20,7 +20,7 @@ class Generator(tk.Tk):
         self.output_box.bind('<Button-3>', self.popup_description)
 
         #import data
-        self.magic_items = ods_to_dict(join('data', 'Magic Item Classifications.ods'))
+        self.magic_items = ods_to_dict(join(dirname(__file__), 'data', 'Magic Item Classifications.ods'))
 
         self.container = ttk.Frame(self)
         self.container.grid(row = 0, column = 0, sticky = 'nsew')
